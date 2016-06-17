@@ -10,9 +10,7 @@ import GridTile from 'material-ui/lib/grid-list/grid-tile';
 import StarBorder from 'material-ui/lib/svg-icons/toggle/star-border';
 import IconButton from 'material-ui/lib/icon-button';
 import GoogleMap from 'google-map-react';
-import TestMarker from './TestMarker.js'
-
-
+import TestMarker from './TestMarker.js';
 
 const mapstyles = {width:580, height: 600, float:'left', marginLeft:100};
 const styles = {
@@ -55,7 +53,6 @@ class SavedPlaceContainer extends Component {
         </div>
       );
     } else {
-
       // there are saved places, so display them
       return (
         <div>
@@ -67,9 +64,9 @@ class SavedPlaceContainer extends Component {
 
           >
 
-          { this.props.savedPlaces.map((savedPlace) => (
+          { this.props.savedPlaces.map((savedPlace, i) => (
             <div>
-              <SavedPlaceEntry savedPlace={savedPlace} onDeleteClick={this.props.onDeleteClick} />
+              <SavedPlaceEntry savedPlace={savedPlace} onDeleteClick={this.props.onDeleteClick} key={i}/>
             </div>
           ))}
 
@@ -81,19 +78,16 @@ class SavedPlaceContainer extends Component {
               key: 'AIzaSyAeYPE2KvoYwdSiVVrZEwdyQ94engLcfxY',
               language: 'en'
           }}
-          center={[37.783697, -122.408966]}
-          zoom={12}
+          center={[this.props.savedPlaces[0].lat, this.props.savedPlaces[0].lng]}
+          zoom={10}
           >
-          {this.props.savedPlaces.map((savedPlace ) =>(
-            <TestMarker lat={savedPlace.lat} lng={savedPlace.lng} text={'A'}></TestMarker>
-
+          {this.props.savedPlaces.map((savedPlace, i) =>(
+            <TestMarker lat={savedPlace.lat} lng={savedPlace.lng} text={'A'} key={i}></TestMarker>
           ))}
 
         </GoogleMap>
         </div>
       </div>
-
-
       );
     }
   }
@@ -124,7 +118,7 @@ const mapDispatchToProps = (dispatch) => {
 
 
 SavedPlaceContainer.propTypes = {
-  places: PropTypes.array.isRequired,
+  savedPlaces: PropTypes.array.isRequired,
   onDeleteClick: PropTypes.func.isRequired
 };
 

@@ -8,7 +8,16 @@ var renderIndex = require(__dirname + '/indexHandler');
 
 module.exports = function(app, express) {
   app.use(express.static(__dirname + '/../../client'));
-  app.get('/home', renderIndex);
+
+  app.get('*', function(req, res, next) {
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+      res.redirect('https://scenicsamurai.herokuapp.com' + req.url);
+    } else {
+      next(); /* Continue to other routes if we're not redirecting */
+    }
+  });
+
+  app.get('/home/*', renderIndex);
 
   app.get('/api/places', placeController.searchGoogle);
 
@@ -26,7 +35,7 @@ module.exports = function(app, express) {
 
   app.get('/auth/google/callback', authGoogle.authenticateLogin,
     function(req, res) {
-      res.redirect('/home');
+      res.redirect('/home/');
     }
   );
 
@@ -34,8 +43,7 @@ module.exports = function(app, express) {
 
   app.get('/auth/facebook/callback', authFacebook.authenticateLogin,
     function(req, res) {
-      //FIXME
-      res.redirect('/home');
+      res.redirect('/home/');
     }
   );
 

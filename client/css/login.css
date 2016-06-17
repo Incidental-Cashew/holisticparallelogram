@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  /*background-color: #FF5A3B;*/
+  background-color: #FAFAFA;
   color: white;
   font-size: 1.2em;
 }
@@ -94,15 +94,15 @@ p#tagline {
   padding-top: 10px;
   border-color: #2d5073;
   background-color: #3b5998;
-  background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
+  background-image: url('./../assets/facebook-icon.png');
 }
 
 #facebook-signin:hover {
-  box-shadow: 0 4px 2px -2px gray;
+  color: #CCC;
   text-shadow: rgba(0, 0, 0, .5) -1px -1px 0;
 }
 
-.ninja {
+.samurai {
   position: relative;
   z-index: 2;
   opacity: .8;

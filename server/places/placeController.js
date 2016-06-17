@@ -1,10 +1,15 @@
 var Sequelize = require('sequelize');
 var Place = require(__dirname + '/placeModel.js');
 var User = require(__dirname + '/../users/userModel.js');
-var GOOGLE_PLACES_API_KEY = require(__dirname + '/../config/googleplaces.js');
 var request = require('request');
 var urlParser = require('url');
 
+
+if (process.env.NODE_ENV === 'dev') {
+  var GOOGLE_PLACES_API_KEY = require(__dirname + '/../config/googleplaces.js');
+} else {
+  var GOOGLE_PLACES_API_KEY = process.env.GOOGLE_PLACES_API_KEY;
+}
 
 module.exports.getAllSaved = function(req, res) {
   var user = req.body.user;

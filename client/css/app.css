@@ -11,17 +11,17 @@ h1, h2, h3, h4, h5, h6 {
 
 
 header {
-  background-color: #FF5A3B;
+  background-color: #005EBD;
   padding: 40px;
   margin-bottom: 20px;
   width: 100%;
-  border-bottom: 35px solid #E55136;
+  border-bottom: 35px solid #004080;
   color: white;
 }
 
 header .description {
   max-width: 450px;
-  color: rgba(255, 255, 255, 0.6);
+  color: #FAFAFA;
 }
 header .black, .black {
   color: rgba(0,0,0,0.8);
@@ -40,7 +40,7 @@ header .black, .black {
   max-width: 220px;
 }
 
-.navNinja {
+.navSamurai {
   height: 30px;
   padding-left: 15px;
 }
@@ -48,7 +48,7 @@ header .black, .black {
 .showNav {
   width: 100%;
   height: 30px;
-  background-color: #E55136;
+  background-color: #007EFF;
   position: fixed;
   top: 0;
   z-index: 1;
@@ -61,7 +61,7 @@ header .black, .black {
   padding: 7px 30px;
 }
 
-header .ninja {
+header .samurai {
   max-height: 150px;
   opacity: .8;
 }
@@ -78,7 +78,7 @@ a:active {color: inherit;}
 
 a.place-entry-link, a.saved-place-entry-link {
   padding: 8px 0px;
-  color: #FF5A3B;
+  color: #E55136;
 }
 
 a.place-entry-link {
@@ -206,7 +206,7 @@ button:focus {
 }
 
 .icon-heart:hover {
-  color: #FF5A3B;
+  color: #FAFAFA;
 }
 
 .icon-ban:hover {

@@ -9,7 +9,8 @@ var session = require('express-session');
 var app = express();
 require(__dirname + '/server/db/index.js')();
 
-var port = process.env.PORT || 4568;
+const port = process.env.PORT || 5000;
+
 var router = require(__dirname + '/server/router/routes');
 
 app.use(bodyParser.json());
@@ -32,20 +33,3 @@ app.listen(port, function(err) {
   }
   console.log('Holistic Parallelogram Listening on Port ' + port);
 });
-
-
-// TODO: check if below are useful for this project
-// override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
-//app.use(methodOverride('X-HTTP-Method-Override'));
-
-// ============= Optional Mongoose/Mongo Setup ===========
-/*
-// Mongoose/Mongo setup. Uncomment if using Mongoose.
-var mongoose = require('mongoose');
-var dbUri = process.env.MONGOLAB_URI ||'mongodb://localhost/mvp';
-mongoose.connect(dbUri, function(err, res) {
-  if (err) {
-    console.log('Mongo connection error: ', err);
-  }
-});
-*/

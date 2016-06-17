@@ -40,7 +40,7 @@ class Navbar extends Component {
 
       <div className="navbar" style={{display: 'none'}}>
         <a href='#'>
-          <img className='navNinja' src='./../assets/ninja.svg' />
+        <img className='navSamurai' src='./../assets/samurai_lg.png' />
         </a>
         <p className='navLogInOut'>{logInOut}</p>
       </div>

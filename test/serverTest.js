@@ -16,12 +16,6 @@ describe('Our first test', function() {
   });
 
   it('Should save a user to the database', function(done) {
-    // var testPlace = {
-    //   name: 'test',
-    //   address: '101 madeup street',
-    //   googlePlaceId: '123456'
-    // };
-    console.log(__dirname);
 
     var testUser = {
       id: '12345',
@@ -32,7 +26,6 @@ describe('Our first test', function() {
     }
 
     User.findOrCreate({where: testUser}).then(function(createdUser) {
-      console.log(createdUser);
       expect(createdUser).to.be.an.Object;
       expect(createdUser[0].dataValues.id).to.equal('12345');
 

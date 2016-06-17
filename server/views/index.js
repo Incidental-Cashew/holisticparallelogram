@@ -19,39 +19,37 @@ const renderFullPage = function(html, initialState) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Welcome to Scenic.Ninja</title>
+        <title>Welcome to Scenic.Samurai</title>
         <meta name="description" content="Find beautiful places near your current location." />
 
         <!-- Schema.org markup for Google+ -->
-        <meta itemprop="name" content="Scenic.Ninja">
+        <meta itemprop="name" content="Scenic.Samurai">
         <meta itemprop="description" content="Find beautiful places near your current location.">
-        <meta itemprop="image" content="http://i.imgur.com/chV68Am.png">
 
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="product">
-        <meta name="twitter:title" content="Scenic.Ninja">
+        <meta name="twitter:title" content="Scenic.Samurai">
         <meta name="twitter:description" content="Find beautiful places near your current location.">
-        <meta name="twitter:image" content="http://i.imgur.com/chV68Am.png">
 
         <!-- Open Graph data -->
         <meta property="og:title" content="Find Beautiful Places Near You" />
-        <meta property="og:url" content="http://www.scenic.ninja/" />
-        <meta property="og:image" content="http://i.imgur.com/chV68Am.png" />
-        <meta property="og:description" content="Scenic.Ninja uses the Google Places API and your current location to find beautiful places around you." />
-        <meta property="og:site_name" content="Scenic.Ninja" />
+        <meta property="og:description" content="Scenic.Samurai uses the Google Places API and your current location to find beautiful places around you." />
+        <meta property="og:site_name" content="Scenic.Samurai" />
 
-        <link rel="stylesheet" href="./css/app.css" media="screen" title="no title" charset="utf-8" />
-        <link rel="stylesheet" href="./css/simple-line-icons.css" media="screen" title="no title" charset="utf-8" />
-        <link rel="stylesheet" href="./css/simple-grid.css" media="screen" title="no title" charset="utf-8" />
-        <link rel="stylesheet" href="./css/animate.css" media="screen" title="no title" charset="utf-8" />
+        <link rel="stylesheet" href="/css/app.css" media="screen" title="no title" charset="utf-8" />
+        <link rel="stylesheet" href="/css/simple-line-icons.css" media="screen" title="no title" charset="utf-8" />
+        <link rel="stylesheet" href="/css/simple-grid.css" media="screen" title="no title" charset="utf-8" />
+        <link rel="stylesheet" href="/css/animate.css" media="screen" title="no title" charset="utf-8" />
         <link href="https://fonts.googleapis.com/css?family=Signika:700,400,600" rel="stylesheet" type="text/css" />
       </head>
       <body>
         <div id="app"><div>${html}</div></div>
         <script>
+          window.console.error = function() {  
+          };
           window.__INITIAL_STATE__ = ${JSON.stringify(initialState)}
         </script>
-        <script src="bundle.js"></script>
+        <script src="/bundle.js"></script>
       </body>
     </html>
     `;

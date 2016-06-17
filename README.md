@@ -1,10 +1,10 @@
 [![Stories in Ready](https://badge.waffle.io/Incidental-Cashew/holisticparallelogram.png?label=ready&title=Ready)](https://waffle.io/Incidental-Cashew/holisticparallelogram)
-# ScenicNinja
+# ScenicSamurai
 
-ScenicNinja uses your current location to find great views nearby. It utilizes the Google Places API to find parks and restaurants within 10km of your location that have reviews matching keywords like "panoramic" and "beautiful view". Anyone can use the service, but you'll need to sign-in with a Google account to save your favorite locations. Enjoy!
+ScenicSamurai uses your current location to find great views nearby. It utilizes the Google Places API to find parks and restaurants within 10km of your location that have reviews matching keywords like "panoramic" and "beautiful view". Anyone can use the service, but you'll need to sign-in with a Google or Facebook account to save your favorite locations. Enjoy!
 
 **Screenshot**  
-![alt tag](client/assets/scenicninjamock.png)  
+![alt tag](client/assets/scenicsamuraimock.png)  
 
 ## Team
 
@@ -42,7 +42,7 @@ User data and saved places are managed in a MySQL database called `scenic`.
 (http://i.imgur.com/lag3WRs.png)
 
 ## Usage
-You'll need API keys for [Google Places](https://developers.google.com/places/web-service/get-api-key) and for [Google Plus](https://developers.google.com/+/web/api/rest/oauth#acquiring-and-using-an-api-key). Add these to the config files in `/server/config`, following the format of the example files. Remove `.example` from the filename.
+You'll need API keys for  [Facebook](https://developers.facebook.com/apps), [Google Places](https://developers.google.com/places/web-service/get-api-key) and for [Google Plus](https://developers.google.com/+/web/api/rest/oauth#acquiring-and-using-an-api-key). Add these to the config files in `/server/config`, following the format of the example files. Remove `.example` from the filename.
 Ensure all [dependencies](#installing-dependencies) are installed. Start a MySQL server by running `mysql.server start`. Then, from within the root directory:
 ```
 npm install
@@ -50,7 +50,7 @@ webpack
 npm start
 ```
 
-Visit `localhost:4568` in the browser.
+Visit `localhost:5000` in the browser.
 
 ## Requirements
 
@@ -58,6 +58,7 @@ Visit `localhost:4568` in the browser.
 - MySQL 5.7.11
 - [Google Places API key](https://developers.google.com/places/web-service/get-api-key)
 - [Google Plus API key](https://developers.google.com/+/web/api/rest/oauth#acquiring-and-using-an-api-key)
+- [Facebook API key](https://developers.facebook.com/apps)
 
 ## Development
 
@@ -83,7 +84,7 @@ npm install
 npm run dev
 ```
 
-Visit `localhost:4568` in the browser.
+Visit `localhost:5000` in the browser.
 
 ## Deployment
 #### Initial Setup on Digital Ocean
@@ -92,6 +93,7 @@ Visit `localhost:4568` in the browser.
 - Do an apt update:  `sudo apt-get update`
 - Install MySql:  `sudo apt-get install mysql-server`
 - Enter a secure password when prompted and note it down as it will be added to `server/config/mysqlsetup.js` later
+- Inside MySql, create a database called scenic
 - Follow the below instructions for deploying new changes manually
 - If you get `ERRCONN`, check `server/db/db.js` for correct credentials
 - Ensure that the credentials in `db.js` match those exported in `server/config` files
@@ -111,11 +113,20 @@ Visit `localhost:4568` in the browser.
    `mkdir config`  
    `cd config`  
 
-- See if the below files are already on the server (`ls`). If not, add them using the following commands:
+- See if the below files are already in the server/config folder. If not, add them:
 
-   `touch googleplus.js`  
-   `touch googleplaces.js`  
-   `touch mysqlsetup.js`  
+   `facebook.js`  
+   `googleplus.js`  
+   `googleplaces.js`  
+   `mysqlsetup.js`  
+
+- Update the file `facebook.js` to contain the following:  
+   ```
+   module.exports = {
+     clientID: 'enter-your-facebook-client-id-here',
+     clientSecret: 'enter-your-facebook-client-secret-here'',
+   };
+   ```
 
 - Update the file `googleplus.js` to contain the following:  
    ```
@@ -138,7 +149,7 @@ Visit `localhost:4568` in the browser.
 ==============================
 
 - `npm start`
-- Go to `xxx.xxx.xx.x:4568` to see your site live
+- Go to `xxx.xxx.xx.x:5000` to see your site live
 
 
 ## Contributing

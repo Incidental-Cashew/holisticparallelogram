@@ -1,7 +1,16 @@
-var googleKeys = require(__dirname + '/../config/googleplus');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth');
 var User = require(__dirname + '/../users/userModel');
+
+if (process.env.NODE_ENV === 'dev') {
+  console.log('dev');
+  var googleKeys = require(__dirname + '/../config/googleplus'),
+      clientID = googleKeys.clientID,
+      clientSecret = googleKeys.clientSecret;
+} else {
+  var clientID = process.env.GOOGLE_CLIENT_ID,
+      clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+}
 
 // Middleware for checking whether the user is logged in
 module.exports.checkAuth = function (req, res, next) {
@@ -39,8 +48,8 @@ passport.deserializeUser(function(user, done) {
 });
 
 passport.use(new GoogleStrategy.OAuth2Strategy({
-  clientID: googleKeys.CLIENT_ID,
-  clientSecret: googleKeys.CLIENT_SECRET,
+  clientID: clientID,
+  clientSecret: clientSecret,
   callbackURL: '/auth/google/callback'
 }, function(accessToken, refreshToken, profile, done) {
   // Create a user if it is a new user, otherwise just get the user from the DB

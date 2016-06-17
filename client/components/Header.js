@@ -33,11 +33,11 @@ class Header extends Component {
         </nav>
         <div className='grid'>
           <div className='col-2-12'>
-            <img className='ninja' src='./../assets/ninja.svg' />
+            <img className='samurai' src='./../assets/samurai_lg.png' />
           </div>
           <div className='col-10-12'>
             <h1>SCENIC<span className='black'>.SAMURAI</span></h1>
-            <p className='description'>After years spent scouring Google Places, Scenic Ninja is ready to share his wisdom with you.</p>
+            <p className='description'>After years spent scouring Google Places, Scenic Samurai is ready to share his wisdom with you.</p>
             <button
             onClick={ this.handleClick.bind(this) }
             type="submit">Find Views
@@ -59,13 +59,11 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onFindClick: () => {
       // Append the body with loading spinner and text
-      var ele = '<div id="spinner">Ninjas are scouting for your views...</div>';
+      var ele = '<div id="spinner">Samurais are scouting for your views...</div>';
       var gif = '<img id="spin-gif" src="../assets/poi.gif">';
       $('#loading-container').prepend(ele);
       $('#loading-container').prepend(gif);
-      console.log('worked');
       searchGooglePlaces(function(data) {
-        console.log(data);
         // Remove loading spinner and text now that places have been returned
         $('#spinner').fadeOut();
         $('#spin-gif').fadeOut();
