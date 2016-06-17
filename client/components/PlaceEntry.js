@@ -21,9 +21,11 @@ class PlaceEntry extends Component {
         <div className='place-info' >
             <h4>{ this.props.place.name }</h4>
             <p>{ this.props.place.address }</p>
-            <a href={'https://www.google.com/maps/place/' + this.props.place.name + ' ' + this.props.place.address} target="_blank">
-              <img src={ this.props.place.image } />
-            </a>
+            <div className='place-pic'>
+              <a href={'https://www.google.com/maps/place/' + this.props.place.name + ' ' + this.props.place.address} target="_blank">
+                <img src={ this.props.place.image } />
+              </a>
+            </div>
             <div>
               <a className='place-entry-link' href={'//www.images.google.com/search?q=' + this.props.place.name + ' ' + this.props.place.address + '&tbm=isch'}
               target='_blank'>View Images</a>

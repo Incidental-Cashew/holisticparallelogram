@@ -10,7 +10,7 @@ video {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -38%);
+  transform: translate(-50%, -50%);
   min-width: 100%;
   min-height: 100%;
   width: auto;
@@ -40,7 +40,7 @@ p#tagline {
 
 .login-buttons {
   position: relative;
-  top: 120px;
+  /*top: 120px;*/
 }
 
 #google-signin {

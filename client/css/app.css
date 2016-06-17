@@ -9,10 +9,9 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Signika', sans-serif;
 }
 
-
 header {
   background-color: #005EBD;
-  padding: 40px;
+  padding: 20px;
   margin-bottom: 20px;
   width: 100%;
   border-bottom: 35px solid #004080;
@@ -26,7 +25,9 @@ header .description {
 header .black, .black {
   color: rgba(0,0,0,0.8);
 }
-
+.contrast {
+  color: #005EBD;
+}
 .saved-places {
   color: rgba(0,0,0,0.6);
 }
@@ -184,6 +185,10 @@ button:focus {
 
 .place-info p {
   margin-top: 8px;
+}
+
+.place-pic img {
+  width: 100%;
 }
 
 .place-entry-favorite {

@@ -36,7 +36,7 @@ class Header extends Component {
             <img className='samurai' src='./../assets/samurai_lg.png' />
           </div>
           <div className='col-10-12'>
-            <h1>SCENIC<span className='black'>.SAMURAI</span></h1>
+            <h1><span>SCENIC</span><span className='black'>.SAMURAI</span></h1>
             <p className='description'>After years spent scouring Google Places, Scenic Samurai is ready to share his wisdom with you.</p>
             <button
             onClick={ this.handleClick.bind(this) }
